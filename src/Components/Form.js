@@ -29,8 +29,9 @@ function FormComponent() {
       };
     const handleFormSubmit = (event)=>{
         event.preventDefault();
-
-        console.log('Form submitted')
+        alert("Form Submitted!")
+        setPassword('')
+        setEmail('')
     }
   return (
     <Container>
