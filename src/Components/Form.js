@@ -9,9 +9,12 @@ function FormComponent() {
     const [password,setPassword]=useState('');
     const handleBlur = (event) => {
         const { name, value } = event.target;
+    
+      
+
         if (name === 'email') {
-          if (!validateEmail(value.trim())) {
-            setEmailError('Invalid Email');
+          if (value &&!validateEmail(value.trim())) {
+            setEmailError('Ensure valid email is entered');
             console.log('invalid eamil')
           }
           else{
@@ -19,8 +22,8 @@ function FormComponent() {
           }
         }
         if (name === 'password') {
-           if (!validatePassword(value.trim())) {
-            setPasswordError('Invalid Password');
+           if (value && !validatePassword(value.trim())) {
+            setPasswordError('Ensure password length is least 8 characters.');
            }
            else{
             setPasswordError('')
@@ -29,6 +32,10 @@ function FormComponent() {
       };
     const handleFormSubmit = (event)=>{
         event.preventDefault();
+        if(emailError || passwordError) {
+            alert("Please fix the errors before submitting.");
+            return;
+        }
         alert("Form Submitted!")
         setPassword('')
         setEmail('')
