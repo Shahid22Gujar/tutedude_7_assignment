@@ -14,8 +14,7 @@ function FormComponent() {
 
         if (name === 'email') {
           if (value &&!validateEmail(value.trim())) {
-            setEmailError('Ensure valid email is entered');
-            console.log('invalid eamil')
+            setEmailError('The email field has a valid email format.');
           }
           else{
             setEmailError('')
@@ -23,7 +22,7 @@ function FormComponent() {
         }
         if (name === 'password') {
            if (value && !validatePassword(value.trim())) {
-            setPasswordError('Ensure password length is least 8 characters.');
+            setPasswordError('The password field has at least 8 characters.');
            }
            else{
             setPasswordError('')
